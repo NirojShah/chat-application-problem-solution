@@ -1,0 +1,14 @@
+// Joining a Chat Room
+socket.emit("joinRoom", { roomId: "123" }); // User-A joins room 123
+
+// Sending a Message
+socket.emit("sendMessage", { roomId: "123", message: "Hello" }); // User-A sends message to room 123
+
+// Receiving Messages
+socket.on("newMessage", (data) => {
+    console.log("New Message:", data.message);
+});
+
+
+
+client side or react
