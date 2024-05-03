@@ -1,0 +1,11 @@
+io.on("connection", (socket) => {
+    // Joining a Chat Room
+    socket.on("joinRoom", ({ roomId }) => {
+        socket.join(roomId);
+    });
+
+    // Sending a Message
+    socket.on("sendMessage", ({ roomId, message }) => {
+        io.to(roomId).emit("newMessage", { message });
+    });
+});
